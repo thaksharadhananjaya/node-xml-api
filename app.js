@@ -8,9 +8,15 @@ app.use(express.json());
 const JWT_SECRET = '7elzOsSYZ/tEETx2L2mZIS8gczxMec5gzUmCW4CkwsI=';
 const students=[];
 
-app.get('/get-token', (req, res) => {
+app.post('/get-token', (req, res) => {
+    console.log(req.headers);
+    //
     const token = jwt.sign({ user: 'example_user' }, JWT_SECRET, { expiresIn: '1h' });
-    res.json({ token });
+    //
+    const xmlResponse = `<AuthInfo><token>${token}</token><AuthStatus><Id>200</Id><Description>LOGIN_OK</Description></AuthStatus></AuthInfo>`;
+    //
+    res.set('Content-Type', 'text/xml');
+    res.send( xmlResponse );
 });
 
 
