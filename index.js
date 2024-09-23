@@ -43,6 +43,10 @@ app.get('/students', (req, res) => {
     res.json({ data: students});
 });
 
+app.get('/', (req, res) => {
+    res.send("WSO2 Micro Integrator RND");
+});
+
 app.post('/students', (req, res) => {
     const student = req.body.student;
     console.log("data: ", student);
