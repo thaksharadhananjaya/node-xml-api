@@ -44,7 +44,7 @@ app.get('/students', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send("WSO2 Micro Integrator RND");
+    res.json("WSO2 Micro Integrator RND");
 });
 
 app.post('/students', (req, res) => {
